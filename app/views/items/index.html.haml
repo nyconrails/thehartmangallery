@@ -15,7 +15,7 @@
         - @items.each do |item|
           %li.span3
             .thumbnail
-              = image_tag item.images.first.url(:thumb) if item.images.any?
+              = image_tag item.images.first.file.url(:thumb) if item.images.any?
               .caption
                 %h5= item.name
                 %p= item.description.capitalize!

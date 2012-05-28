@@ -7,6 +7,7 @@ Hartmangallery::Application.routes.draw do
   resources :orders, :only => ['new','show','create']
   
   match '/create_order/:item_id' => 'orders#new'
+  match '/collection/:id' => 'items#index'
   
   namespace :admin do
     root :to => 'items#index'

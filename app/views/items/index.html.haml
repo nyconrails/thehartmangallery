@@ -2,19 +2,20 @@
   .row
     .sidebar.span2
       %ul.nav.nav-list
-        %li= link_to 'All', ''
+        %li= link_to 'All', root_path
         %li.nav-header Jewelry
         - Collection.jewelry.each do |collection|
           %li= link_to collection.name, "/collection/#{collection.id}"
         %li.nav-header Antiques
-        %li= link_to 'Carved', ""
+        - Collection.antique.each do |collection|
+          %li= link_to collection.name, "/collection/#{collection.id}"
     .main.span10
       %h1 Objects
       %ul.thumbnails
         - @items.each do |item|
           %li.span3
             .thumbnail
-              = image_tag ''
+              = image_tag item.images.first.url(:thumb) if item.images.any?
               .caption
                 %h5= item.name
                 %p= item.description

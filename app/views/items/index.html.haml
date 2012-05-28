@@ -18,5 +18,5 @@
               = image_tag item.images.first.url(:thumb) if item.images.any?
               .caption
                 %h5= item.name
-                %p= item.description
+                %p= item.description.capitalize!
                 = link_to 'More info', item, :class => 'btn btn-primary'

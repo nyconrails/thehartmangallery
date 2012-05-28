@@ -1,0 +1,9 @@
+= simple_form_for([:admin,@item]) do |f|
+  = f.input :name
+  = f.input :description
+  = f.input :dimensions
+  = f.input :dating
+  = f.input :provenance
+  = f.input :signed
+  = f.input :price
+  = f.submit "Save", :class => 'btn'

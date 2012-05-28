@@ -1,0 +1,4 @@
+= simple_form_for([:admin,@collection]) do |f|
+  = f.input :name
+  = f.input :category, :collection => ['jewelry','antique']
+  = f.submit "Save", :class => 'btn'

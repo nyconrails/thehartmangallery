@@ -1,0 +1,15 @@
+%h1 Collections
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th
+  %tbody
+    - @collections.each do |collection|
+      %tr
+        %td= collection.name
+        %td
+          = link_to 'Edit', edit_admin_collection_path(collection)
+          = link_to 'Destroy', admin_collection_path(collection), :method => :delete
+
+= link_to 'New Collection', new_admin_collection_path

@@ -1,0 +1,21 @@
+.items.index
+  .row
+    .sidebar.span2
+      %ul.nav.nav-list
+        %li= link_to 'All', ''
+        %li.nav-header Jewelry
+        - Collection.jewelry.each do |collection|
+          %li= link_to collection.name, "/collection/#{collection.id}"
+        %li.nav-header Antiques
+        %li= link_to 'Carved', ""
+    .main.span10
+      %h1 Objects
+      %ul.thumbnails
+        - @items.each do |item|
+          %li.span3
+            .thumbnail
+              = image_tag ''
+              .caption
+                %h5= item.name
+                %p= item.description
+                = link_to 'More info', item, :class => 'btn btn-primary'

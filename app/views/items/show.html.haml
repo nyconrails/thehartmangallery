@@ -1,0 +1,28 @@
+.items.show
+  .row
+    .span2
+      %h5 Other #{@item.collection.name unless !@item.collection} Items
+    .span9.offset1
+      %h1= @item.name
+      %p= @item.description
+      
+      - if !@item.dimensions.nil?
+        %h3 Dimensions
+        %p= @item.dimensions
+     
+      - if !@item.dating.nil?
+        %h3 Dating
+        %p= @item.dating
+
+      - if !@item.provenance.nil?
+        %h3 Provenance
+        %p= @item.provenance
+      
+      - if !@item.signed.nil?
+        %h3 Signed
+        %p= @item.signed
+      
+      - if !@item.price.nil?
+        %h2= number_to_currency(@item.price)
+        = link_to 'Purchase', "/create_order/#{@item.id}", :class => 'btn btn-primary'
+        = link_to 'Place an Inquiry', "/create_inquiry/#{@item.id}", :class => 'btn'

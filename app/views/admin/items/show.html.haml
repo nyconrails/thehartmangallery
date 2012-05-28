@@ -1,0 +1,39 @@
+.admin.items.show
+.row
+  .span3
+    %h1= @item.name
+    %p
+      %b Description
+      = @item.description
+    %p
+      %b Dimensions
+      = @item.dimensions
+    %p
+      %b Dating
+      = @item.dating
+  .span8.offset1
+    %h3 Images
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Image
+          %th
+      %tbody
+        - @item.images.each do |image|
+          %tr
+            %td= image_tag image.url(:medium)
+            %td= link_to 'Destroy', admin_item_path(item), :method => :delete
+    
+    = link_to 'Add an image', '#add_an_image', 'data-toggle' => 'modal', :class => 'btn'
+    
+#add_an_image.modal.fade{:style => 'display:none;'}
+  = simple_form_for([:admin,@item,Image.new], :html => { :multipart => true }) do |f|
+    .modal-header
+      = link_to 'X', '#', 'data-dismiss' => 'modal', :class => 'close'
+      %h3 Add a new Image
+    .modal-body
+      = f.input :file
+  
+    .modal-footer
+      = f.submit 'Save', :class => 'btn btn-primary'
+      = link_to 'Close', '#', 'data-dismiss' => 'modal', :class => 'btn'

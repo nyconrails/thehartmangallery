@@ -1,0 +1,16 @@
+%h1 Items
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td= item.name
+        %td
+          = link_to 'Images', admin_item_images_path(item)
+          = link_to 'Edit', edit_admin_item_path(item)
+          = link_to 'Destroy', admin_item_path(item), :method => :delete
+
+= link_to 'New Item', new_admin_item_path

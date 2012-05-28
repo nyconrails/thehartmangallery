@@ -21,8 +21,8 @@
       %tbody
         - @item.images.each do |image|
           %tr
-            %td= image_tag image.url(:medium)
-            %td= link_to 'Destroy', admin_item_path(item), :method => :delete
+            %td= image_tag image.file.url(:medium)
+            %td= link_to 'Remove Image', admin_item_image_path(@item,image), :method => :delete
     
     = link_to 'Add an image', '#add_an_image', 'data-toggle' => 'modal', :class => 'btn'
     

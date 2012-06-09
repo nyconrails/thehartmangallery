@@ -5,8 +5,10 @@ Hartmangallery::Application.routes.draw do
   
   resources :items, :only => ['index','show']
   resources :orders, :only => ['new','show','create']
+  resources :inquiries, :only => ['new','show','create']
   
   match '/create_order/:item_id' => 'orders#new'
+  match '/create_inquiry/:item_id' => 'inquiries#new'
   match '/collection/:id' => 'items#index'
   
   namespace :admin do

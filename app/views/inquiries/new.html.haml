@@ -1,0 +1,16 @@
+.inquiries.new
+  .row
+    .span2
+      %h3 Item Details
+      %p
+        %b Item Name:
+        = @item.name
+      %p
+        %b Description:
+        = @item.description
+      %p
+        %b Price:
+        = number_to_currency(@item.price)
+    .span6.offset1
+      %h1 Inquire about this item
+      = render 'form'

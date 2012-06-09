@@ -1,0 +1,9 @@
+= simple_form_for(@inquiry) do |f|
+  .row
+    .span5
+      = f.input :first_name
+      = f.input :last_name
+      = f.input :email
+      = f.input :phone_number
+      = f.input :note
+      = f.submit "Submit my inquiry", :class => 'btn'

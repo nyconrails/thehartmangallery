@@ -6,7 +6,7 @@ Hartmangallery::Application.routes.draw do
 
   match '/create_order/:item_id' => 'orders#new'
   match '/create_inquiry/:item_id' => 'inquiries#new'
-  match '/collection/:id' => 'items#index'
+  match '/collection/:id' => 'items#index', as: :collectn
 
   root :to => 'items#index'
 

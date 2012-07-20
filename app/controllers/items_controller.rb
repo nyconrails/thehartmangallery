@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
 
   def index
     if params[:id]
-      @collection = Collection.find(params[:id])
-      @items = Item.where(:collection_id => params[:id]).page(params[:page]).per_page(50)
+      @collection = Collection.find_by_slug(params[:id])
+      @items = Item.where(:collection_id => @collection.id).page(params[:page]).per_page(50)
     else
       @items = Item.page(params[:page]).per_page(50)
     end

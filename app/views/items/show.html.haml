@@ -2,7 +2,14 @@
   .row
     .span2
       %h5 Other #{@item.collection.name unless !@item.collection} Items
-    .span9.offset1
+    .span3
+      %ul#etalage
+        - if @item.images.any?
+          - @item.images.each do |image|
+            %li
+              = image_tag image.file.url(:medium), class: 'etalage_thumb_image'
+              = image_tag image.file.url, class: 'etalage_source_image'
+    .span6.offset1
       %h1= @item.name
       %p= @item.description.humanize
 
@@ -26,3 +33,4 @@
         %h2= number_to_currency(@item.price)
         = link_to 'Purchase', "/create_order/#{@item.id}", :class => 'btn btn-primary'
         = link_to 'Place an Inquiry', "/create_inquiry/#{@item.id}", :class => 'btn'
+

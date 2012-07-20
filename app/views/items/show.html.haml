@@ -4,24 +4,24 @@
       %h5 Other #{@item.collection.name unless !@item.collection} Items
     .span9.offset1
       %h1= @item.name
-      %p= @item.description
-      
-      - if !@item.dimensions.nil?
-        %h3 Dimensions
-        %p= @item.dimensions
-     
-      - if !@item.dating.nil?
-        %h3 Dating
-        %p= @item.dating
+      %p= @item.description.humanize
 
-      - if !@item.provenance.nil?
+      - if @item.dimensions.present?
+        %h3 Dimensions
+        %p= @item.dimensions.humanize
+
+      - if @item.dating.present?
+        %h3 Dating
+        %p= @item.dating.humanize
+
+      - if @item.provenance.present?
         %h3 Provenance
-        %p= @item.provenance
-      
-      - if !@item.signed.nil?
+        %p= @item.provenance.humanize
+
+      - if @item.signed.present?
         %h3 Signed
         %p= @item.signed
-      
+
       - if !@item.price.nil?
         %h2= number_to_currency(@item.price)
         = link_to 'Purchase', "/create_order/#{@item.id}", :class => 'btn btn-primary'

@@ -1,16 +1,15 @@
 Hartmangallery::Application.routes.draw do
-  
-  
-  root :to => 'items#index'
-  
+
   resources :items, :only => ['index','show']
   resources :orders, :only => ['new','show','create']
   resources :inquiries, :only => ['new','show','create']
-  
+
   match '/create_order/:item_id' => 'orders#new'
   match '/create_inquiry/:item_id' => 'inquiries#new'
   match '/collection/:id' => 'items#index'
-  
+
+  root :to => 'items#index'
+
   namespace :admin do
     root :to => 'items#index'
     resources :items do
@@ -20,7 +19,7 @@ Hartmangallery::Application.routes.draw do
     resources :collections
     resources :orders
   end
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

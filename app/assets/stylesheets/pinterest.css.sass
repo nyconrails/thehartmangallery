@@ -1,0 +1,57 @@
+.item
+  width: 192px
+  float: left
+  padding: 15px
+  margin: 0 7px 15px
+  font-size: 12px
+  background: white
+  line-height: 1.5
+  -webkit-box-shadow:  0 1px 3px rgba(34, 25, 25, 0.4)
+  box-shadow:  0 1px 3px rgba(34, 25, 25, 0.4)
+
+  h2
+    padding-top: 5px
+
+  .comments
+    color: #000
+    padding-bottom: 15px
+
+  .chat
+    background: #f2f0f0
+    margin: 0 -15px
+
+  .chatbox
+    border-top: 1px solid white
+    border-bottom: 1px solid rgba(#000, .1)
+    padding: 15px 15px
+    padding-left: 50px
+
+    &:last-child
+      border-bottom: none
+
+    &:first-child
+      color: #b29c9c
+
+      b
+        color: #8c7e7e
+
+
+    .flickrbombWrapper img
+      margin: 0
+
+    .flickrbombWrapper
+      img
+        margin-left: -35px
+        float: left
+
+      b
+        font-weight: bold
+
+  .chatbox:after
+    content: "."
+    display: block
+    clear: both
+    visibility: hidden
+    line-height: 0
+    height: 0
+

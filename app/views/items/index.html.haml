@@ -10,13 +10,19 @@
         - Collection.antique.each do |collection|
           %li= link_to collection.name, "/collection/#{collection.id}"
     .main.span10
-      %h1 Objects
-      %ul.thumbnails
+      %h1= @collection.try(:name).presence || "The Hartman Gallery"
+      #pinterest
         - @items.each do |item|
-          %li.span3
-            .thumbnail
-              = image_tag item.images.first.file.url(:medium) if item.images.any?
-              .caption
-                %h5= item.name
-                %p= item.description.capitalize!
-                = link_to 'More info', item, :class => 'btn btn-primary'
+          .item
+            = image_tag item.images.first.file.url(:medium) if item.images.any?
+            .caption
+              %h5= item.name
+              %p= item.description.capitalize!
+              = link_to 'More info', item, :class => 'btn btn-primary'
+
+
+
+:javascript
+  $(document).ready(function() {
+    trigger_pinterest();
+  });

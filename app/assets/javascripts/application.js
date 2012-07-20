@@ -14,3 +14,33 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+
+function initLayout(){
+  var window_width = $('.main').width();
+  wrapper_width = Math.floor( window_width / 236 ) * 236;
+  if ( window_width > 960 ) {
+    $('.wrapper').css("width", wrapper_width + "px" );
+  } else {
+    $('.wrapper').css("width", "944px" );
+  }
+}
+
+function resort(){
+  $('#pinterest').masonry({
+    itemSelector : '.item',
+    isResizable: false
+  });
+}
+
+function trigger_pinterest() {
+  $(function(){
+    initLayout();
+    resort();
+  });
+
+  $(window).resize(function(){
+    initLayout();
+    resort();
+  });
+}

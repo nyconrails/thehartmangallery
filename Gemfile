@@ -22,6 +22,10 @@ gem 'prawn'
 gem 'prawnto'
 gem "friendly_id", "~> 4.0.1"
 
+group :development do
+  gem 'quiet_assets'
+end
+
 group :test, :production do
   gem 'therubyracer'
 end

@@ -21,8 +21,9 @@ gem 'activemerchant', :require => 'active_merchant'
 gem 'prawn'
 gem 'prawnto'
 gem "friendly_id", "~> 4.0.1"
+gem 'will_paginate', '> 3.0'
 
-group :development do
+group :development, :lesches do
   gem 'quiet_assets'
 end
 

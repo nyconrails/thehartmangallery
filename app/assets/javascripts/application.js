@@ -16,6 +16,7 @@
 //= require_tree .
 
 
+// Pinterest layouting
 function initLayout(){
   var window_width = $('.main').width();
   wrapper_width = Math.floor( window_width / 236 ) * 236;
@@ -26,7 +27,7 @@ function initLayout(){
   }
 }
 
-function resort(){
+function resort() {
   $('#pinterest').masonry({
     itemSelector : '.item',
     isResizable: false
@@ -44,3 +45,26 @@ function trigger_pinterest() {
     resort();
   });
 }
+
+
+
+
+// will_paginate override to create an endless scroll
+$(document).ready(function() {
+
+  if ( $('.pagination').length ) {
+
+    $(window).scroll(function() {
+
+      url = $('.pagination .next_page').attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 100) {
+        $('.pagination').text("Fetching more items...");
+        $.getScript(url);
+      }
+
+    });
+    $(window).scroll();
+
+  }
+
+});

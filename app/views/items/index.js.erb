@@ -1,0 +1,8 @@
+var $newitems = '<%= j render(@items) %>';
+$('#pinterest').append($newitems).masonry('reload');
+
+<% if @items.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@items) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

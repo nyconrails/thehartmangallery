@@ -11,19 +11,19 @@
               = image_tag image.file.url, class: 'etalage_source_image'
     .span6.offset1
       %h1= @item.name
-      %p= @item.description.humanize
+      %p= @item.description.paragraphize
 
       - if @item.dimensions.present?
         %h3 Dimensions
-        %p= @item.dimensions.humanize
+        %p= @item.dimensions.paragraphize
 
       - if @item.dating.present?
         %h3 Dating
-        %p= @item.dating.humanize
+        %p= @item.dating.paragraphize
 
       - if @item.provenance.present?
         %h3 Provenance
-        %p= @item.provenance.humanize
+        %p= @item.provenance.paragraphize
 
       - if @item.signed.present?
         %h3 Signed

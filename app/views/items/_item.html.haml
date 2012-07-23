@@ -2,5 +2,5 @@
   .img= image_tag item.images.first.file.url(:medium) if item.images.any?
   .caption
     %h5= item.name
-    %p= item.description.truncate(200).capitalize!
+    %p= item.description.truncate(200).paragraphize
     = link_to 'View This Item', item, :class => 'btn btn-primary'

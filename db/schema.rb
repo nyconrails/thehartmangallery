@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720200831) do
+ActiveRecord::Schema.define(:version => 20120726213953) do
 
   create_table "collections", :force => true do |t|
     t.string   "name"
@@ -71,8 +71,9 @@ ActiveRecord::Schema.define(:version => 20120720200831) do
     t.string   "phone_number"
     t.string   "email"
     t.integer  "item_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "paid",         :default => false
   end
 
 end

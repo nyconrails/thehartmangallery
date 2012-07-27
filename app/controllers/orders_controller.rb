@@ -9,7 +9,14 @@ class OrdersController < ApplicationController
 
   def create
     @item = Item.find_by_id(params[:order][:item_id])
-    super
+    @order = Order.new(params[:order])
+
+    if @order.save
+      Mailer.order_notification(@order).deliver
+      render action: :saved
+    else
+      render action: :new
+    end
   end
 
 end

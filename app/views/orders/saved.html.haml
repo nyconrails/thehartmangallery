@@ -1,0 +1,23 @@
+.orders.new
+  .row
+    .span2
+      %h3 Item Details
+      %p
+        %b Item Name:
+        = @item.name
+      %p
+        %b Description:
+        = @item.description
+      %p
+        %b Price:
+        = number_to_currency(@item.price)
+    .span6.offset1
+      %h1 Order Complete
+      %p Thank you for submitting your order.
+      %p Your order has been completed successfully and will be shipped with next-day air.
+      %p You will receive an email confirmation shortly.
+    .span3
+      %h4 Shipping Information
+      %p We ship all packages next-day air. All packages are insured for the full value of their sales price.
+      %h4 Returns
+      %p We accept returns with 30-days for full store-credit.

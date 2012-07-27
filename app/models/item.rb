@@ -1,5 +1,7 @@
 class Item < ActiveRecord::Base
 
+  has_many :orders
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 

@@ -1,0 +1,10 @@
+%p A new order has been received.
+%p
+%p Item ordered: #{@order.item.name}, #{number_to_currency @order.item.price}.
+%p
+%p
+%p Customer information -
+%br
+- %w(first_name last_name address city state postal_code phone_number email).each do |i|
+  #{i.humanize}: #{@order.send(i)}
+  %br

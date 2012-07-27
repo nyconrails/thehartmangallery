@@ -1,4 +1,7 @@
 class Order < ActiveRecord::Base
+
+  belongs_to :item
+
   attr_accessor :credit_card_number, :card_type, :expiration_month, :expiration_year, :cvv
   attr_accessible :first_name, :last_name, :address, :city, :state, :postal_code, :cvv, :item_id, :phone_number, :email, :credit_card_number, :card_type, :expiration_month, :expiration_year
 

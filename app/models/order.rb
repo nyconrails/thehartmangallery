@@ -10,8 +10,8 @@ class Order < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :address, :city, :state, :postal_code, :phone_number, :email, :credit_card_number, :card_type, :expiration_month, :expiration_year, :cvv
 
   def process_credit_card
-    api_login_id = '9tMj92Xp' # INVALID, REPLACE WITH NEW
-    api_transaction_key = '9z397P5K2Jyw9ZpF' # INVALID, REPLACE WITH NEW
+    api_login_id = '9tMj92Xp'
+    api_transaction_key = '9z397P5K2Jyw9ZpF'
 
     # ActiveMerchant::Billing::Base.mode = :test
 
@@ -32,7 +32,7 @@ class Order < ActiveRecord::Base
 
     if credit_card.valid?
 
-      charge_amount = Item.find_by_id(self.item_id).price
+      charge_amount = Item.find_by_id(self.item_id).price * 100
 
       billing_address = { :name => "#{self.first_name} #{self.last_name}", :address1 => self.address,
       :city => self.city, :state => self.state,
@@ -45,6 +45,7 @@ class Order < ActiveRecord::Base
       if response.success?
         self.paid = true
       else
+        logger.debug response.to_yaml
         errors.add(:error, "We couldn't process your credit card")
         return false
       end

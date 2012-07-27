@@ -18,6 +18,8 @@
         = f.input :expiration_year, :collection => ['2012','2013','2014','2015','2016','2017','2018','2019']
         = f.input :cvv, input_html: { maxlength: '4' }
         = f.hidden_field :item_id, value: params[:item_id] || params[:order][:item_id]
+
+        %p &nbsp;
         .well
           %h3 You will be charged #{number_to_currency(@item.price)}USD
-        = f.submit "Place my order", :class => 'btn'
+        = f.submit "Place My Order", :class => 'btn btn-success'

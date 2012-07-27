@@ -10,7 +10,7 @@
         - Collection.antique.each do |collection|
           %li= link_to collection.name, collectn_path(collection)
     .main.span10
-      %h1= @collection.try(:name).presence || "The Hartman Gallery"
+      %h1= "The Hartman Gallery :: " << (@collection.try(:name).presence || "Jewelry and Antiques")
       #pinterest= render @items
       .row= will_paginate @items
 

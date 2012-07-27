@@ -11,35 +11,42 @@
       - else
         No similar items found.
 
-    .span3
-      %ul#etalage
-        - if @item.images.any?
-          - @item.images.each do |image|
-            %li
-              = image_tag image.file.url(:medium), class: 'etalage_thumb_image'
-              = image_tag image.file.url, class: 'etalage_source_image', width: 200, height: 400
-    .span6.offset1
-      %h1= @item.name
-      %p= @item.description.paragraphize
 
-      - if @item.dimensions.present?
-        %h3 Dimensions
-        %p= @item.dimensions.paragraphize
+    .span10
+      .span6
+        %h1= @item.name
+        %p= @item.description.paragraphize
 
-      - if @item.dating.present?
-        %h3 Dating
-        %p= @item.dating.paragraphize
+        - if @item.dimensions.present?
+          %h3 Dimensions
+          %p= @item.dimensions.paragraphize
 
-      - if @item.provenance.present?
-        %h3 Provenance
-        %p= @item.provenance.paragraphize
+        - if @item.dating.present?
+          %h3 Dating
+          %p= @item.dating.paragraphize
 
-      - if @item.signed.present?
-        %h3 Signed
-        %p= @item.signed
+        - if @item.provenance.present?
+          %h3 Provenance
+          %p= @item.provenance.paragraphize
 
-      - if !@item.price.nil?
-        %h2= number_to_currency(@item.price)
-        = link_to 'Purchase', "/create_order/#{@item.id}", :class => 'btn btn-primary'
-        = link_to 'Place an Inquiry', "/create_inquiry/#{@item.id}", :class => 'btn'
+        - if @item.signed.present?
+          %h3 Signed
+          %p= @item.signed
 
+      .span3.pricings
+        - if !@item.price.nil?
+          %h2= number_to_currency(@item.price)
+          %p &nbsp;
+          %p= link_to 'Purchase This Item', "/create_order/#{@item.id}", :class => 'btn btn-success btn-large'
+          %p= link_to 'Place an Inquiry', "/create_inquiry/#{@item.id}", :class => 'btn'
+
+
+
+
+      .span10
+        %ul#etalage
+          - if @item.images.any?
+            - @item.images.each do |image|
+              %li
+                = image_tag image.file.url(:medium), class: 'etalage_thumb_image'
+                = image_tag image.file.url, class: 'etalage_source_image', width: 200, height: 400

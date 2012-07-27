@@ -7,7 +7,7 @@
         = @item.name
       %p
         %b Description:
-        = @item.description
+        = @item.description.paragraphize
       %p
         %b Price:
         = number_to_currency(@item.price)

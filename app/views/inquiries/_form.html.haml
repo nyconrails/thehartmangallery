@@ -1,9 +1,13 @@
-= simple_form_for(@inquiry) do |f|
-  .row
-    .span5
-      = f.input :first_name
-      = f.input :last_name
-      = f.input :email
-      = f.input :phone_number
-      = f.input :note
-      = f.submit "Submit my inquiry", :class => 'btn'
+#inquiry
+  #standard_form
+    = simple_form_for(@inquiry) do |f|
+      .row
+        .span3
+          = f.input :first_name
+          = f.input :last_name
+          = f.input :email
+          = f.input :phone_number
+        .span6
+          = f.input :note
+          = f.hidden_field :item_id, value: params[:item_id] || params[:inquiry][:item_id]
+          = f.submit "Submit my inquiry", :class => 'btn btn-success pull-right btn-large'

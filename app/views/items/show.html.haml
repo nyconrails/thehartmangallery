@@ -42,11 +42,15 @@
 
 
 
-
-      .span10
-        %ul#etalage
+      .span19
+        .span9.image_gallery
           - if @item.images.any?
             - @item.images.each do |image|
-              %li
-                = image_tag image.file.url(:medium), class: 'etalage_thumb_image'
-                = image_tag image.file.url, class: 'etalage_source_image', width: 200, height: 400
+              .image= image_tag image.file.url
+
+:javascript
+  $(window).load(function() {
+    //$('.image_gallery').masonry({
+      //itemSelector: '.image'
+    //});
+  });

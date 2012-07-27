@@ -1,0 +1,10 @@
+%p A new inquiry has been received.
+%p
+%p Item inquired about: #{@inquiry.item.name}, #{number_to_currency @inquiry.item.price}.
+%p
+%p
+%p Customer information -
+%br
+- %w(first_name last_name email phone_number note).each do |i|
+  #{i.humanize}: #{@inquiry.send(i)}
+  %br

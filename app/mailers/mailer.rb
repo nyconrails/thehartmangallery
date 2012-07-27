@@ -4,12 +4,12 @@ class Mailer < ActionMailer::Base
 
   def order_notification(order)
     @order = order
-    mail to: "David <david@nyconrails.com>", subject: "New Order and Purchase"
+    mail to: "Don Hartman <don@donhartman.com>", subject: "New Order and Purchase"
   end
 
   def inquiry_notification(inquiry)
     @inquiry = inquiry
-    mail to: "David <david@nyconrails.com>", subject: "New Inquiry"
+    mail to: "Don Hartman <don@donhartman.com>", subject: "New Inquiry"
   end
 
 end

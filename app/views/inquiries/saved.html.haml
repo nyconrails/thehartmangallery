@@ -2,6 +2,8 @@
   .row
     .span2
       %h3 Item Details
+      .sidebar_item
+        = image_tag @item.images.first.file.url(:thumb)
       %p
         %b Item Name:
         = @item.name

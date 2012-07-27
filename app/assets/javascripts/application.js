@@ -57,9 +57,15 @@ $(document).ready(function() {
     $(window).scroll(function() {
 
       url = $('.pagination .next_page').attr('href');
-      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 200) {
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 800) {
         $('.pagination').text("Fetching more items...");
         $.getScript(url);
+      }
+
+      if ($(window).scrollTop() > 800) {
+        $('.goup').fadeIn('slow');
+      } else {
+        $('.goup').fadeOut('slow');
       }
 
     });
@@ -70,5 +76,9 @@ $(document).ready(function() {
   if ( $('#etalage').length ) {
     $('#etalage').etalage();
   }
+
+  $('.goup').click(function() {
+    $.scrollTo(0, 800);
+  });
 
 });

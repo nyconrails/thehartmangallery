@@ -6,5 +6,7 @@
   = f.input :provenance
   = f.input :signed
   = f.input :price
+  = f.input :inventory, label: "Inventory - Amount in stock"
   = f.association :collection
+  = f.input :note, input_html: { style: 'height: 180px' }
   = f.submit "Save", :class => 'btn'

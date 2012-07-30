@@ -6,7 +6,9 @@ class Item < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  attr_accessible :name, :description, :dimensions, :dating, :provenance, :signed, :price, :collection_id
+  attr_accessible :inventory, :name, :description, :dimensions, :dating, :provenance, :signed, :price, :collection_id, :note
+
+  scope :in_stock, where("inventory > 0")
 
   has_many :images
   belongs_to :collection

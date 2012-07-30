@@ -1,6 +1,5 @@
 class InquiriesController < ApplicationController
   inherit_resources
-  protect_from_forgery
 
   def new
     @inquiry = Inquiry.new

@@ -8,6 +8,7 @@ Hartmangallery::Application.routes.draw do
   match '/create_inquiry/:item_id' => 'inquiries#new'
   match '/collection/:id' => 'items#index', as: :collectn #purposely misspelled, collection is a protected word
   match '/about-us' => 'public#about_us', as: :about_us
+  match '/search' => 'items#search', as: :search_path
 
   root :to => 'items#index'
 

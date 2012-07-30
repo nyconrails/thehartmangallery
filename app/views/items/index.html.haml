@@ -1,17 +1,13 @@
 .items.index
   .row
-    .sidebar.span2
-      %ul.nav.nav-list
-        %li= link_to 'All', root_path
-        %li.nav-header Jewelry
-        - Collection.jewelry.each do |collection|
-          %li= link_to collection.name, collectn_path(collection)
-        %li.nav-header Antiques
-        - Collection.antique.each do |collection|
-          %li= link_to collection.name, collectn_path(collection)
+    .sidebar.span2= render 'items_sidebar'
     .main.span10
-      %h1= "The Hartman Gallery :: " << (@collection.try(:name).presence || "Jewelry and Antiques")
-      #pinterest= render @items
+      %h1= "The Hartman Gallery :: " << @title
+      - if @items.any?
+        #pinterest= render @items
+      - else
+        No matching items found.
+
       .row= will_paginate @items
 
 .goup

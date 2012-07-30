@@ -11,6 +11,11 @@
     %p
       %b Dating
       = @item.dating
+    - if @item.note.present?
+      %p
+        %b Note
+        = @item.note
+
   .span8.offset1
     %h3 Images
     %table.table.table-striped

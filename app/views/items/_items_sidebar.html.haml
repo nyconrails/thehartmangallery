@@ -1,0 +1,8 @@
+%ul.nav.nav-list
+  %li= link_to 'All', collectn_path('all')
+  %li.nav-header Jewelry
+  - Collection.jewelry.each do |collection|
+    %li= link_to collection.name, collectn_path(collection)
+  %li.nav-header Antiques
+  - Collection.antique.each do |collection|
+    %li= link_to collection.name, collectn_path(collection)

@@ -33,6 +33,10 @@
           %h3 Signed
           %p= @item.signed
 
+        - if @item.note.present?
+          %h3 Note
+          %p= @item.note.paragraphize
+
       .span3.pricings
         - if !@item.price.nil?
           %h2= number_to_currency(@item.price)

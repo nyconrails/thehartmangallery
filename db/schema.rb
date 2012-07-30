@@ -11,15 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120726213953) do
+ActiveRecord::Schema.define(:version => 20120730181340) do
 
   create_table "collections", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "category"
     t.string   "slug"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   add_index "collections", ["slug"], :name => "index_collections_on_slug", :unique => true
@@ -57,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20120726213953) do
     t.datetime "updated_at",    :null => false
     t.integer  "collection_id"
     t.string   "slug"
+    t.text     "note"
+    t.integer  "inventory"
   end
 
   add_index "items", ["slug"], :name => "index_items_on_slug", :unique => true

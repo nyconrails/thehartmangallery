@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   inherit_resources
-  protect_from_forgery
 
   def new
     @order = Order.new

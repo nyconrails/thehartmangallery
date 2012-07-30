@@ -1,4 +1,6 @@
 = simple_form_for([:admin,@collection]) do |f|
   = f.input :name
+  = f.input :description
   = f.input :category, :collection => ['jewelry','antique']
+  = f.input :file, label: "Collection image"
   = f.submit "Save", :class => 'btn'

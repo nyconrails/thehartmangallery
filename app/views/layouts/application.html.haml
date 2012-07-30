@@ -14,5 +14,9 @@
           %ul.nav
             %li= link_to 'Jewelry and Antiques', root_path
             %li= link_to 'About Us', about_us_path
+
+          = form_tag('/search', class: 'navbar-search pull-right') do
+            = text_field_tag :search, nil, :class => 'search-query', placeholder: 'Search...'
+
     .container
       = yield

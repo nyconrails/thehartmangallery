@@ -1,0 +1,26 @@
+.items.index
+  .row
+    .sidebar.span2= render 'items_sidebar'
+    .main.span10
+      %h1= "The Hartman Gallery"
+
+      - count = 0
+      - @collections.each do |c|
+        - if count.even?
+          .clear
+        .collection
+          .image= link_to (image_tag c.file.url(:medium)), collectn_path(c)
+          .title= c.name
+          .desc= c.description
+        - count = count + 1
+
+
+
+:javascript
+  $(document).ready(function() {
+
+    $('.collection').click(function() {
+      window.location.href = $(this).find('a').attr('href');
+    });
+
+  });

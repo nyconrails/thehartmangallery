@@ -13,8 +13,6 @@ class Order < ActiveRecord::Base
     api_login_id = '9tMj92Xp'
     api_transaction_key = '9z397P5K2Jyw9ZpF'
 
-    # ActiveMerchant::Billing::Base.mode = :test
-
     gateway = ActiveMerchant::Billing::AuthorizeNetGateway.new(
       :login  => api_login_id,
       :password => api_transaction_key
@@ -32,7 +30,9 @@ class Order < ActiveRecord::Base
 
     if credit_card.valid?
 
-      charge_amount = Item.find_by_id(self.item_id).price * 100
+      purchased_item = Item.find_by_id(self.item_id)
+      charge_amount = purchased_item.price * 100
+      purchased_item.update_attributes(:inventory => purchased_item.inventory - 1)
 
       billing_address = { :name => "#{self.first_name} #{self.last_name}", :address1 => self.address,
       :city => self.city, :state => self.state,

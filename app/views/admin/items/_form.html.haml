@@ -1,12 +1,18 @@
-= simple_form_for([:admin,@item]) do |f|
-  = f.input :name
-  = f.input :description
-  = f.input :dimensions
-  = f.input :dating
-  = f.input :provenance
-  = f.input :signed
-  = f.input :price
-  = f.input :inventory, label: "Inventory - Amount in stock"
-  = f.association :collection
-  = f.input :note, input_html: { style: 'height: 180px' }
-  = f.submit "Save", :class => 'btn'
+.row
+  = simple_form_for([:admin,@item]) do |f|
+
+    .span5
+      = f.input :inventoryid, label: "Inventory ID#"
+      = f.input :name
+      = f.input :dimensions
+      = f.input :dating
+      = f.input :provenance
+      = f.input :description
+
+    .span5
+      = f.input :signed
+      = f.input :price
+      = f.input :inventory, label: "Amount in stock"
+      = f.association :collection
+      = f.input :note, input_html: { style: 'height: 180px' }
+      = f.submit "Save", :class => 'btn pull-right btn-large'

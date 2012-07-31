@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730181340) do
+ActiveRecord::Schema.define(:version => 20120731151728) do
 
   create_table "collections", :force => true do |t|
     t.string   "name"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20120730181340) do
     t.string   "slug"
     t.text     "note"
     t.integer  "inventory"
+    t.string   "inventoryid"
   end
 
   add_index "items", ["slug"], :name => "index_items_on_slug", :unique => true

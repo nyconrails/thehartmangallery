@@ -18,9 +18,13 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.in_stock.where("name LIKE :term", term: "%#{params[:search]}%").page(params[:page]).per_page(50)
-    @title = params[:search]
-    render :index
+    if params[:search]
+      @items = Item.in_stock.where("name LIKE :term OR inventoryid = :iid OR inventoryid = :hiid", term: "%#{params[:search]}%", iid: params[:search], hiid: params[:search].gsub(/^#/, '')).page(params[:page]).per_page(50)
+      @title = params[:search]
+      render :index
+    else
+      redirect_to root_path
+    end
   end
 
 

@@ -3,6 +3,10 @@
   .span3
     %h1= @item.name
     %p
+      %b Inventory ID
+      = @item.inventoryid
+
+    %p
       %b Description
       = @item.description
     %p
@@ -11,6 +15,11 @@
     %p
       %b Dating
       = @item.dating
+    %p
+      %b Left in Stock
+      = @item.inventory
+
+
     - if @item.note.present?
       %p
         %b Note

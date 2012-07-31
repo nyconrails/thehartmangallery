@@ -14,7 +14,7 @@
 
     .span10
       .span6
-        %h1= @item.name
+        %h1 #{@item.name} ##{@item.inventoryid}
         %p= @item.description.paragraphize
 
         - if @item.dimensions.present?

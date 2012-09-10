@@ -2,11 +2,13 @@
 %table.table.table-striped
   %thead
     %tr
+      %th ID
       %th Name
       %th
   %tbody
     - @items.each do |item|
       %tr
+        %td= item.inventoryid
         %td= item.name
         %td
           = link_to 'Images', admin_item_images_path(item)

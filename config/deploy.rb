@@ -1,6 +1,6 @@
 require 'bundler/capistrano'
 set :application, "hg"
-set :repository,  "git@github.com:alechartman/thehartmangallery.git"
+set :repository,  "git@github.com:nyconrails/thehartmangallery.git"
 set :user, "railsapps"
 set :use_sudo, false
 set :deploy_to, "/home/railsapps/public_html/#{application}"
